@@ -16,12 +16,13 @@
         
         body {
             overflow: hidden;
-            background: #0f0f0f;
+            background: #202020;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
             cursor: pointer;
+            color: #e8e8e8;
         }
         
         .error-screen, .music-screen { 
@@ -30,16 +31,14 @@
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
-            align-items: center; 
-            text-align: left;
+            align-items: flex-start; 
             position: relative;
             overflow: hidden;
+            padding: 0 40px;
         }
         
         .error-screen {
-            background: #0f0f0f;
-            color: #e0e0e0;
-            padding: 30px 20px;
+            background: #202020;
         }
         
         .error-content {
@@ -48,49 +47,48 @@
         }
         
         .error-icon {
-            width: 36px;
-            height: 36px;
-            margin-bottom: 25px;
-            background: #747474;
-            border-radius: 50%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .error-icon::before {
-            content: "!";
-            color: white;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 1;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 30px;
+            background-image: url('logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
         }
         
         .error-screen h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 400;
             margin-bottom: 20px;
-            color: #e0e0e0;
+            color: #e8e8e8;
             line-height: 1.3;
+            text-align: left;
         }
         
         .error-screen h2 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 400;
-            margin-bottom: 25px;
-            color: #aaa;
+            margin-bottom: 30px;
+            color: #b0b0b0;
             line-height: 1.4;
+            text-align: left;
+        }
+        
+        .error-screen h2 strong {
+            font-weight: 600;
+            color: #e8e8e8;
         }
         
         .suggestions {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-align: left;
         }
         
         .suggestions p {
-            font-size: 14px;
+            font-size: 16px;
             margin-bottom: 15px;
-            color: #e0e0e0;
+            color: #b0b0b0;
+            text-align: left;
         }
         
         .suggestions ul {
@@ -99,26 +97,70 @@
         }
         
         .suggestions li {
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #e0e0e0;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #e8e8e8;
             position: relative;
             padding-left: 20px;
+            line-height: 1.4;
+            text-align: left;
         }
         
         .suggestions li::before {
             content: "•";
             position: absolute;
             left: 0;
-            color: #aaa;
-            font-size: 16px;
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .reload-btn {
+            padding: 12px 24px;
+            border: 1px solid #0078d4;
+            background: #0078d4;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .details-btn {
+            padding: 12px 24px;
+            border: 1px solid #5a5a5a;
+            background: transparent;
+            color: #e8e8e8;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .reload-btn:hover {
+            background: #106ebe;
+            border-color: #106ebe;
+        }
+        
+        .details-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .error-code {
-            font-size: 13px;
-            color: #666;
-            margin-top: 25px;
-            font-family: monospace;
+            font-size: 14px;
+            color: #707070;
+            margin-top: 0;
+            font-family: 'Courier New', monospace;
+            font-weight: 400;
+            text-align: left;
         }
         
         .music-screen { 
@@ -127,17 +169,19 @@
             color: white;
             cursor: default;
             padding: 20px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         
         .album-cover {
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            margin-bottom: 50px;
             object-fit: cover;
-            box-shadow: 0 0 50px rgba(107, 112, 255, 0.3);
-            border: 4px solid white;
-            background: linear-gradient(135deg, #6b70ff, #ff4667) border-box;
+            margin-bottom: 40px;
+            border: 3px solid white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         
         .mute-btn {
@@ -157,33 +201,102 @@
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             .error-screen {
-                padding: 25px 15px;
+                padding: 0 30px;
+            }
+            
+            .error-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 25px;
             }
             
             .error-screen h1 {
-                font-size: 22px;
+                font-size: 24px;
+                margin-bottom: 18px;
             }
             
             .error-screen h2 {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+            
+            .suggestions p {
+                font-size: 15px;
+            }
+            
+            .suggestions li {
                 font-size: 15px;
             }
             
             .album-cover {
                 width: 220px;
                 height: 220px;
-                margin-bottom: 40px;
-            }
-            
-            .mute-btn {
-                padding: 12px 30px;
-                font-size: 15px;
-                margin-top: 30px;
+                margin-bottom: 35px;
             }
         }
 
         @media (max-width: 480px) {
             .error-screen {
-                padding: 20px 12px;
+                padding: 0 20px;
+            }
+            
+            .error-icon {
+                width: 54px;
+                height: 54px;
+                margin-bottom: 20px;
+            }
+            
+            .error-screen h1 {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+            
+            .error-screen h2 {
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .suggestions p {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+            
+            .suggestions li {
+                font-size: 14px;
+                padding-left: 18px;
+                margin-bottom: 8px;
+            }
+            
+            .buttons {
+                gap: 12px;
+                margin-bottom: 25px;
+            }
+            
+            .reload-btn, .details-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+            
+            .error-code {
+                font-size: 13px;
+            }
+            
+            .album-cover {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .error-screen {
+                padding: 0 16px;
+            }
+            
+            .error-icon {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 18px;
             }
             
             .error-screen h1 {
@@ -192,46 +305,26 @@
             
             .error-screen h2 {
                 font-size: 14px;
-                margin-bottom: 20px;
             }
             
             .suggestions li {
                 font-size: 13px;
             }
             
-            .album-cover {
-                width: 200px;
-                height: 200px;
-                margin-bottom: 50px;
-                border: 3px solid white;
+            .buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 200px;
             }
             
-            .mute-btn {
-                padding: 12px 28px;
-                font-size: 14px;
-                margin-top: 40px;
+            .reload-btn, .details-btn {
+                width: 100%;
+                text-align: center;
             }
             
-            .error-icon {
-                width: 32px;
-                height: 32px;
-                margin-bottom: 20px;
-            }
-            
-            .error-icon::before {
-                font-size: 18px;
-            }
-        }
-        
-        @media (max-width: 360px) {
             .album-cover {
                 width: 180px;
                 height: 180px;
-                margin-bottom: 40px;
-            }
-            
-            .mute-btn {
-                margin-top: 30px;
             }
         }
     </style>
@@ -241,7 +334,7 @@
         <div class="error-content">
             <div class="error-icon"></div>
             <h1>Не удается получить доступ к сайту</h1>
-            <h2>Превышено время ожидания ответа от сайта <span id="current-domain">e.26-2.ru</span>.</h2>
+            <h2>Превышено время ожидания ответа от сайта <strong id="current-domain">www.sfu-kras.ru</strong>.</h2>
             
             <div class="suggestions">
                 <p>Попробуйте сделать следующее:</p>
@@ -252,7 +345,12 @@
                 </ul>
             </div>
             
-            <div class="error-code">ERR_TIMED_OUT</div>
+            <div class="buttons">
+                <button class="reload-btn" onclick="reloadPage()">Перезагрузить</button>
+                <button class="details-btn" onclick="showDetails()">Сведения</button>
+            </div>
+            
+            <div class="error-code">ERR_CONNECTION_TIMED_OUT</div>
         </div>
     </div>
     
@@ -264,7 +362,7 @@
     
     <script>
         // Автоматически подставляем текущий домен
-        document.getElementById('current-domain').textContent = window.location.hostname;
+        document.getElementById('current-domain').textContent = window.location.hostname || 'www.sfu-kras.ru';
         
         function showMusicScreen() {
             document.querySelector('.error-screen').style.display = 'none';
@@ -283,6 +381,17 @@
             } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
                 document.documentElement.msRequestFullscreen();
             }
+        }
+
+        // Фейковые функции для кнопок
+        function reloadPage() {
+            // Ничего не делает, просто фейковая кнопка
+            return false;
+        }
+
+        function showDetails() {
+            // Ничего не делает, просто фейковая кнопка
+            return false;
         }
 
         // Запрет копирования
