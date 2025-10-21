@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "src": "/cat",
+      "dest": "/cat.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
